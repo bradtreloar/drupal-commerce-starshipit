@@ -1,0 +1,8 @@
+name = StarShipIT
+description = Integrates StarShipIT shipping rates estimation with Commerce Shipping.
+package = Commerce (shipping)
+core = 7.x
+
+dependencies[] = commerce
+dependencies[] = commerce_shipping (7.x-2.x)
+dependencies[] = commerce_physical

@@ -1,1 +1,20 @@
 <?php
+/**
+ * @file
+ * Handles installation for Commerce StarShipIT module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_starshipit_uninstall() {
+  $vars = array(
+    'commerce_starshipit_api_key',
+    'commerce_starshipit_apim_key',
+    'commerce_starshipit_rates_timeout',
+  );
+
+  foreach ($vars as $data) {
+    variable_del($data);
+  }
+}

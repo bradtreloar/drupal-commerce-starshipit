@@ -1,1 +1,70 @@
 <?php
+/**
+ * @file
+ * Handles main functionality for Commerce StarShipIT module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_starshipit_menu() {
+  $items = array();
+
+  $items['admin/commerce/config/shipping/methods/starshipit/edit'] = array(
+    'title' => 'Edit',
+    'description' => 'Configure the StarShipIT shipping method.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('commerce_starshipit_settings_form'),
+    'access arguments' => array('administer shipping'),
+    'file' => 'includes/commerce_starshipit.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'context' => MENU_CONTEXT_INLINE,
+    'weight' => 0,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_commerce_shipping_method_info().
+ */
+function commerce_starshipit_commerce_shipping_method_info() {
+  $shipping_methods = array();
+
+  $shipping_methods['starshipit'] = array(
+    'title' => t('Australia Post'),
+    'description' => t('Quote rates from StarShipIT'),
+  );
+
+  return $shipping_methods;
+}
+
+/**
+ * Implements hook_commerce_shipping_service_info().
+ */
+function commerce_starshipit_commerce_shipping_service_info() {
+  // @TODO
+}
+
+/**
+ * Shipping service callback:
+ * returns a base price array for a shipping service
+ * calculated for the given order.
+ */
+function commerce_starshipit_service_rate_order($shipping_service, $order) {
+  // @TODO
+}
+
+/**
+ * Convenience function to get available services.
+ */
+function commerce_starshipit_service_list() {
+  // @TODO
+}
+
+/**
+ * Returns a computer friendly slug for a service code.
+ */
+function commerce_starshipit_commerce_shipping_service_name($service_code) {
+  // @TODO
+}
